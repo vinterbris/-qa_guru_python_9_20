@@ -14,8 +14,6 @@ def browser_management():
     browser.config.window_width = 1600
     browser.config.window_height = 900
     browser.config.base_url = 'http://demowebshop.tricentis.com'
-    driver_options = webdriver.ChromeOptions()
-    browser.config.driver_options = driver_options
 
     yield
 
@@ -35,6 +33,5 @@ def get_login_cookie():
                              allow_redirects=False)
     cookie_name = 'NOPCOMMERCE.AUTH'
     cookie = response.cookies.get(cookie_name)
-    user_cookie = {'NOPCOMMERCE.AUTH': cookie}
 
     yield cookie, cookie_name
